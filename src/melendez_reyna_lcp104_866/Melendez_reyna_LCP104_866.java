@@ -33,7 +33,7 @@ public class Melendez_reyna_LCP104_866 {
         
              
          
-        System.out.println("Menu\nA. Jugar\n B. Cambiar palabras");
+        System.out.println("Menu\nA. Jugar\nB. Cambiar palabras");
         opcion = entrada.next().toLowerCase();
         if (opcion.equals("a")){
              int nuevojuego=1, oportunidad=5 ;
