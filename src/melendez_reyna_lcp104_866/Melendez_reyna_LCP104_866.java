@@ -24,16 +24,20 @@ public class Melendez_reyna_LCP104_866 {
         
         String opcion ;
         String [] palabras={"honduras","cacahuate","guacamaya"};
-        int numletras=0, oportunidad=5, letrasacertadas=0 ;
+        int numletras=0, letrasacertadas=0 ;
         String palabrarandom = null ;
         char letra;
-        boolean terminado=false,acierto=false ;
+        boolean acierto=false ;
+       
         
              
          
         System.out.println("Menu\nA. Jugar\n B. Cambiar palabras");
         opcion = entrada.next().toLowerCase();
         if (opcion.equals("a")){
+             int nuevojuego=1, oportunidad=5 ;
+            while(nuevojuego==1){
+            oportunidad=5    ;
          palabrarandom= palabras[ran.nextInt(palabras.length)];
          numletras= palabrarandom.length();
          char [] palabraoculta= new char[numletras];
@@ -76,11 +80,27 @@ public class Melendez_reyna_LCP104_866 {
                 System.out.println("Felicidades! Has ganado.");
             } else {
                 System.out.println("Has perdido. La palabra era: " + palabrarandom);
-           
- 
-                 
                           }
-              }}}
+            System.out.println("deseas jugar de nuevo?\n1. si\n2. no");
+            nuevojuego=entrada.nextInt();
+            
+              }
+        if(opcion.equals("b")){
+            String[] cadenas = new String[10]; 
+
+        // ingresar 10 cadenas
+        System.out.println("Ingresa 10 cadenas:");
+        for (int i = 0; i < cadenas.length; i++) {
+            System.out.println("Cadena "+(i+1)+" :");
+            cadenas[i] = entrada.next();
+        }
+
+        // Mostrar el lista de cadenas
+        System.out.println("Lista de cadenas ingresadas:");
+            for (int i = 0; i < 10; i++)
+            System.out.println((i+1)+". "+cadenas[i]) ;
+        }
+    }}}
        
             
 
