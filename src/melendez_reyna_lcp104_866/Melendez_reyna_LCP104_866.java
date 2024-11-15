@@ -7,6 +7,7 @@ package melendez_reyna_lcp104_866;
 
 import java.util.Random;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,8 +33,8 @@ public class Melendez_reyna_LCP104_866 {
         
              
          
-        System.out.println("Menu\nA. Jugar\n B. Cambiar palabras");
-        opcion = entrada.next().toLowerCase();
+        opcion=(JOptionPane.showInputDialog("Menu\nA. Jugar\n B. Cambiar palabras"));
+    
         if (opcion.equals("a")){
              int nuevojuego=1, oportunidad=5 ;
             while(nuevojuego==1){
@@ -47,13 +48,13 @@ public class Melendez_reyna_LCP104_866 {
              palabraoculta[i]='_' ;
          } // fin de for 
             for (int i = 0; i < numletras; i++) {
-                System.out.print(palabraoculta[i]+" "); // imprimir los guiones
+                JOptionPane.showMessageDialog(null,palabraoculta[i]+" "); // imprimir los guiones
             }
             
            do{
                acierto=false ;
-             System.out.println("\ningresa una letra"); 
-             letra= entrada.next().charAt(0);
+             letra=JOptionPane.showInputDialog("\ningresa una letra").charAt(0); 
+             
                for (int i = 0; i < palabraoculta.length; i++) {
           
                if (letra==palabrarandom.charAt(i)){
@@ -63,27 +64,26 @@ public class Melendez_reyna_LCP104_866 {
                }
                }
                if (acierto)
-                    System.out.println("Le pegaste a una letra!\n Oportunidad= "+oportunidad);
+                    JOptionPane.showMessageDialog(null,"Le pegaste a una letra!\n Oportunidad= "+oportunidad);
                  
                if(!acierto){
                    oportunidad=(oportunidad-1);
-                   System.out.println("la palabra no contiene ese caracter\nOportunidad= "+oportunidad);                  
+                   JOptionPane.showMessageDialog(null,"la palabra no contiene ese caracter\nOportunidad= "+oportunidad);                  
                }          
               for (int i = 0; i < numletras; i++) { // muestra los guiones de palabra oculta
-                System.out.print(palabraoculta[i]+" ");
+                JOptionPane.showMessageDialog(null,palabraoculta[i]+" ");
                  }    
                }
                 while(oportunidad>=1 && letrasacertadas < numletras );
            
             // Condición para determinar si ganó o perdió
             if (letrasacertadas == numletras) {
-                System.out.println("Felicidades! Has ganado.");
+                JOptionPane.showMessageDialog(null,"Felicidades! Has ganado.");
             } else {
-                System.out.println("Has perdido. La palabra era: " + palabrarandom);
+                JOptionPane.showMessageDialog(null,"Has perdido. La palabra era: " + palabrarandom);
                           }
-            System.out.println("deseas jugar de nuevo?\n1. si\n2. no");
-            nuevojuego=entrada.nextInt();
-            
+            nuevojuego=Integer.parseInt(JOptionPane.showInputDialog("deseas jugar de nuevo?\n1. si\n2. no"));
+         
               }
         if(opcion.equals("b")){
             String[] cadenas = new String[10]; 
